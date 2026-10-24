@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* CodeOrbit dark navy theme */
+    --background: 217 33% 9%;          /* #0B1120 */
+    --foreground: 203 25% 95%;         /* #F1F5F9 */
+    --card: 219 31% 14%;               /* #151F32 */
+    --card-foreground: 203 25% 95%;
+    --popover: 215 28% 13%;            /* #0F172A */
+    --popover-foreground: 203 25% 95%;
+    --primary: 217 91% 60%;            /* #3B82F6 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 28% 13%;
+    --secondary-foreground: 203 25% 95%;
+    --muted: 217 29% 17%;
+    --muted-foreground: 215 20% 65%;   /* #94A3B8 */
+    --accent: 217 91% 75%;             /* #60A5FA */
+    --accent-foreground: 217 33% 9%;
+    --destructive: 0 84% 60%;          /* #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;            /* #22C55E */
+    --warning: 38 92% 50%;             /* #F59E0B */
+    --error: 0 84% 60%;
+    --border: 217 29% 20%;
+    --input: 217 29% 20%;
+    --ring: 217 91% 60%;
+    --elevated: 218 30% 18%;           /* #1B2940 */
+    --chart-1: 217 91% 60%;
+    --chart-2: 142 71% 45%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 260 65% 65%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--elevated));
+    border-radius: 6px;
+    border: 2px solid hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.4);
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Orbital grid background — subtle connected-node motif */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .bg-grid-fade {
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 40%, transparent 100%);
+  }
+
+  /* Orbital dot pattern — decorative connected nodes */
+  .bg-orbital {
+    background-image: radial-gradient(circle, hsl(var(--primary) / 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-orbital-fade {
+    -webkit-mask-image: radial-gradient(ellipse 50% 40% at 50% 50%, black 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 50% 40% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.15), 0 8px 30px -8px hsl(var(--primary) / 0.35);
+  }
+  .glow-accent {
+    box-shadow: 0 0 0 1px hsl(var(--accent) / 0.12), 0 4px 20px -6px hsl(var(--accent) / 0.25);
+  }
+
+  /* Animated orbital ring — decorative brand element */
+  .orbital-ring {
+    position: relative;
+  }
+  .orbital-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--primary) / 0.2);
+    animation: orbit-rotate 20s linear infinite;
+  }
+  .orbital-ring::after {
+    content: '';
+    position: absolute;
+    inset: 8%;
+    border-radius: 50%;
+    border: 1px solid hsl(var(--accent) / 0.15);
+    animation: orbit-rotate 15s linear infinite reverse;
+  }
+
+  @keyframes orbit-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
