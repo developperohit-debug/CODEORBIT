@@ -13,6 +13,7 @@ import {
   Megaphone,
   Shield,
   ArrowLeft,
+  Lightbulb,
 } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
@@ -27,6 +28,7 @@ const adminNav = [
   { label: 'Events', href: '/admin/events', icon: Calendar },
   { label: 'Reports', href: '/admin/reports', icon: Flag },
   { label: 'Announcements', href: '/admin/announcements', icon: Megaphone },
+  { label: 'Suggestions', href: '/admin/suggestions', icon: Lightbulb },
 ];
 
 export function AdminGuard({ children }: { children: React.ReactNode }) {

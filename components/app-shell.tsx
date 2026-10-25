@@ -17,6 +17,7 @@ import {
   Users,
   X,
   Target,
+  Lightbulb,
 } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
@@ -78,6 +79,7 @@ const navSections: NavSection[] = [
     heading: 'Personal',
     items: [
       { label: 'Profile', href: '/profile', icon: Settings },
+      { label: 'Suggest', href: '/suggestions', icon: Lightbulb },
     ],
   },
 ];
