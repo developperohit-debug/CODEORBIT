@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
-import { Bookmark, BookmarkCheck, Filter, Search, RotateCcw, ChevronRight } from 'lucide-react';
+import { Bookmark, BookmarkCheck, Filter, Search, RotateCcw, ChevronRight, Route } from 'lucide-react';
 import { AppShell } from '@/components/app-shell';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -116,8 +116,17 @@ export default function DsaPage() {
   return (
     <AppShell>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold tracking-tight">DSA Tracker</h1>
-        <p className="mt-1 text-muted-foreground">Browse, filter, and track your progress across {total} problems.</p>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight">DSA Tracker</h1>
+            <p className="mt-1 text-muted-foreground">Browse, filter, and track your progress across {total} problems.</p>
+          </div>
+          <Button variant="outline" size="sm" asChild>
+            <Link href="/dsa/roadmap">
+              <Route className="mr-2 h-4 w-4" /> Roadmap View
+            </Link>
+          </Button>
+        </div>
       </div>
 
       {/* Progress summary */}

@@ -11,6 +11,7 @@ import {
   LogOut,
   Menu,
   MessageSquare,
+  Route,
   Settings,
   Shield,
   Trophy,
@@ -50,6 +51,7 @@ const navSections: NavSection[] = [
     heading: 'Practice',
     items: [
       { label: 'DSA Tracker', href: '/dsa', icon: Compass },
+      { label: 'DSA Roadmap', href: '/dsa/roadmap', icon: Route },
       { label: 'Analytics', href: '/analytics', icon: Target },
     ],
   },
